@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1> Learning JavaScript - JavaScript execution!!!</h1>
+        <script>
+           // Problem, Violating DRY principle
+            function copyArrayAndMultiplyBy2(array){
+                const output = [];
+                for(let i = 0;i<array.length;i++){
+                    output.push(array[i]*2);
+                }
+                return output;
+            }
+
+            function copyArrayAndDivideBy2(array){
+                const output = [];
+                for(let i = 0;i<array.length;i++){
+                    output.push(array[i]/2);
+                }
+                return output;
+            }
+
+            function copyArrayAndAddBy3(array){
+                const output = [];
+                for(let i = 0;i<array.length;i++){
+                    output.push(array[i]+3);
+                }
+                return output;
+            }
+
+            // Higher Order Function (Function receives function as input)
+            function copyArrayAndManipulate(array, callbackFunction){
+                const output = [];
+                for(let i = 0;i<array.length;i++){
+                    output.push(callbackFunction(array[i]));
+                }
+                return output;
+            } 
+
+            // Callback function (Function passed as a parameter)
+            function multiplyBy2(input){
+                return input * 2;
+            }
+            // Callback function (Function passed as a parameter)
+            function divBy2(input){
+                return input / 2;
+            }
+            // Callback function (Function passed as a parameter)
+            function add3(input){
+                return input + 3;
+            }
+
+            // Without Higher Order Function and Callback function
+            const myArray = [1,2,3];
+            let result = copyArrayAndMultiplyBy2(myArray);
+            console.log(result);
+
+            result = copyArrayAndDivideBy2(myArray);
+            console.log(result);
+
+            result = copyArrayAndAddBy3(myArray);
+            console.log(result);
+
+           // Using Higher Order Function and Callback function
+            result = copyArrayAndManipulate(myArray, multiplyBy2);
+            console.log(result);
+
+            result = copyArrayAndManipulate(myArray, divBy2);
+            console.log(result);
+
+            result = copyArrayAndManipulate(myArray, add3);
+            console.log(result);
+            //using Arrow function
+            result = copyArrayAndManipulate(myArray, input=>input*2);
+            console.log(result);
+
+
+        </script>
+    </body>
+</html>

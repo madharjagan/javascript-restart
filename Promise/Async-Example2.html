@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1> Learning JavaScript - JavaScript execution!!!</h1>
+        <script>
+
+            function printHello(){
+                console.log("Hello!!!")
+            }
+
+            function display(data){
+                console.log(data.data)
+            }
+           
+            /* 
+            1)Implementation for Fetch is not available in JavaScript. 
+            2)It's a Facade function in Javascript for Browser Network API            
+            3)Javascript sends async call to Browser Network API and proceeds to the next line
+            4)Main Thread of execution will not wait for the response from the browser.
+            */
+
+            // Call stack > Micro Task Queue > Callback queue
+            //Promise Call - Call back goes to Micro Task Queue
+            const dataFromAPI = fetch('http://dummy.restapiexample.com/api/v1/employee/2')
+            .then((res)=>res.json())
+            .then((data)=> display(data));
+
+            //Call to browser API with Higher Order Function - Call back goes to Callback queue 
+            setTimeout(printHello,100); // After 1 sec
+
+            console.log("Me Later!!!");
+
+        </script>
+    </body>
+</html>

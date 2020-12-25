@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1> Learning JavaScript - JavaScript execution!!!</h1>
+        <script>
+            function printHello(){
+                console.log("Hello!!!")
+            }
+            /*
+            1)Timer is not available in JavaScript
+            2)Sends async request to browser timer API
+            3)Main thread of execution will not wait for response
+            */
+            setTimeout(printHello,1000)
+            
+            console.log("Me Later!!!");
+
+        </script>
+    </body>
+</html>

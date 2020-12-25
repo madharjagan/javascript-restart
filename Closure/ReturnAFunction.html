@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1> Learning JavaScript - JavaScript execution!!!</h1>
+        <script>
+            
+            function createFunction(){
+                function multiplyByTwo(input){
+                    return input * 2;
+                }
+                return multiplyByTwo;
+            }
+
+            const generatedFunction = createFunction();
+            const result = generatedFunction(3);
+            console.log(result);
+            
+        </script>
+    </body>
+</html>

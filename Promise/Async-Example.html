@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1> Learning JavaScript - JavaScript execution!!!</h1>
+        <script>
+            function display(data){
+                console.log(data.data)
+            }
+            
+            /* Implementation for Fetch is not available in JavaScript. 
+            it's a Facade function in Javascript for Browser Network API
+            Javascript sends async call to Browser Network API and proceeds to the next line
+            Main Thread of execution will not wait for the response from the browser.
+            */
+            const dataFromAPI = fetch('http://dummy.restapiexample.com/api/v1/employee/1')
+            .then((res)=>res.json())
+            .then((data)=> display(data));
+
+            console.log("Me Later!!!");
+
+        </script>
+    </body>
+</html>

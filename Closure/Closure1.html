@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1> Learning JavaScript - JavaScript execution!!!</h1>
+        <script>
+           function outer(){
+               /* Not used in incrementCounter(), so will not be available in 
+               function's backpack or Closed Over Variable Environment (COVE)*/
+               let notUsedinMethod = 8;
+               // Available in COVE or Backpack
+               let counter = 0;
+               function incrementCounter(){
+                   counter++;
+                   console.log(counter);
+               }
+               return incrementCounter;
+           }
+
+           // Creates a new execution context, counter initializes to ZERO
+           const myNewFunction = outer();
+           myNewFunction();
+           myNewFunction();
+
+           // Creates a new execution context, counter initializes to ZERO
+           const anotherFunction = outer();
+           anotherFunction();
+           anotherFunction();
+
+           // No new execution context, counter will not RESET
+           const oneMorefunction = myNewFunction;
+           oneMorefunction();
+           oneMorefunction();
+
+        </script>
+    </body>
+</html>

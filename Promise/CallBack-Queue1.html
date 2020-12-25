@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1> Learning JavaScript - JavaScript execution!!!</h1>
+        <script>
+            function printHello(){
+                console.log("Hello!!!")
+            }
+
+            function blockFor2Sec(){
+                const s = new Date().getSeconds();
+                while (true) {
+                    if (new Date().getSeconds() - s >= 2) {
+                        console.log("Good, looped for 2 seconds")
+                        break;
+                    }
+                }
+            }
+            /*
+            1)Timer is not available in JavaScript
+            2)Sends async request to browser timer API
+            3)Main thread of execution will not wait for response
+            */
+            setTimeout(printHello,0);
+
+            blockFor2Sec();
+
+            console.log("Me Later!!!");
+
+        </script>
+    </body>
+</html>

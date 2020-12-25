@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1> Learning JavaScript - JavaScript execution!!!</h1>
+        <script>
+            const s = new Date().getSeconds();
+
+            setTimeout(function() {
+                // prints out "2", meaning that the callback is not called immediately after 500 milliseconds.
+                console.log("Ran after " + (new Date().getSeconds() - s) + " seconds");
+            }, 500)
+
+            while (true) {
+                if (new Date().getSeconds() - s >= 2) {
+                    console.log("Good, looped for 2 seconds")
+                    break;
+                }
+            }
+
+        </script>
+    </body>
+</html>
